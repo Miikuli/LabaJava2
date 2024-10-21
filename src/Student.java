@@ -1,5 +1,5 @@
 public class Student {
-    private String name;
+    private final String name;
     private int[] marks;
 
     public Student(String name, int... marks) {
@@ -14,8 +14,8 @@ public class Student {
     public double averageMark() {
         if (marks.length == 0) return 0;
         double sum = 0;
-        for (int i = 0; i < marks.length; i++) {
-            sum += marks[i];
+        for (int mark : marks) {
+            sum += mark;
         }
         return sum/marks.length;
     }
@@ -41,8 +41,8 @@ public class Student {
     @Override
     public String toString() {
         String array_out = "";
-        for (int i = 0; i < marks.length; i++) {
-            array_out = array_out + " " + marks[i];
+        for (int mark : marks) {
+            array_out += " " + mark;
         }
         return name + ":" + array_out;
     }
