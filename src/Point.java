@@ -11,6 +11,9 @@ public class Point {
     }
 
     public void setValue(double x, double y) {
+        if (Double.isNaN(x) || Double.isNaN(y)) {
+            throw new IllegalArgumentException("Координаты не могут быть NaN");
+        }
         this.x = x;
         this.y = y;
     }
