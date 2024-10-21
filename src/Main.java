@@ -135,12 +135,18 @@ public class Main {
         int value;
         System.out.print(prompt);
         while(true) {
-            value = scanner.nextInt();
-            if (value >= 1 && value <= 5) {
-                break;
+            if (scanner.hasNextInt()) {
+                value = scanner.nextInt();
+                if (value >= 1 && value <= 5) {
+                    return value;
+                } else {
+                    System.out.println("Ошибка: введите целое число от 1 до 5.");
+                }
             }
-            System.out.println("Ошибка: введите целое число от 1 до 5.");
+            else {
+                System.out.println("Ошибка: введите целое число.");
+                scanner.next();
+            }
         }
-        return value;
     }
 }
